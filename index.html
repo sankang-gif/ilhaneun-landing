@@ -1,0 +1,1160 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>일하는학교 — 청년의 자립, 기댈 언덕이 되어</title>
+<meta name="description" content="사회적협동조합 일하는학교는 위기·고립 청년이 일상을 회복하고 진로를 찾아 자립할 때까지 3~5년을 함께 동행하는 비영리법인입니다.">
+<meta property="og:title" content="일하는학교 — 청년의 자립, 기댈 언덕이 되어">
+<meta property="og:description" content="13년간 512명의 위기·고립 청년과 동행했습니다. 첫 취업 후 3개월 이상 지속 64.9%.">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+<style>
+/* ============ tokens ============ */
+:root{
+  --ink:#17211D;
+  --ink-2:#3A4642;
+  --muted:#6E7570;
+  --primary:#14563F;
+  --primary-700:#0E4130;
+  --primary-300:#5C9179;
+  --primary-tint:#EAF2ED;
+  --accent:#E0913A;
+  --accent-700:#B87121;
+  --accent-tint:#FCEFDC;
+  --cream:#FBF7F1;
+  --white:#FFFFFF;
+  --line:#E7E0D4;
+  --line-soft:#F0EBE1;
+  --shadow-sm:0 1px 2px rgba(23,33,29,.06), 0 4px 12px rgba(23,33,29,.05);
+  --shadow-md:0 2px 4px rgba(23,33,29,.06), 0 12px 32px rgba(23,33,29,.08);
+  --r-sm:10px; --r-md:16px; --r-lg:24px;
+  --wrap:1120px;
+  --font:"Noto Sans KR","Apple SD Gothic Neo","Malgun Gothic",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+body{
+  margin:0; background:var(--cream); color:var(--ink);
+  font-family:var(--font); font-weight:400; font-size:17px; line-height:1.75;
+  -webkit-font-smoothing:antialiased; word-break:keep-all; overflow-wrap:break-word;
+}
+img{max-width:100%}
+a{color:inherit}
+h1,h2,h3,h4{line-height:1.3; margin:0; letter-spacing:-.02em; font-weight:700}
+p{margin:0}
+ul{margin:0; padding:0; list-style:none}
+
+.wrap{width:100%; max-width:var(--wrap); margin:0 auto; padding:0 24px}
+.section{padding:104px 0}
+.section--tight{padding:76px 0}
+.bg-white{background:var(--white)}
+.bg-cream{background:var(--cream)}
+.bg-dark{background:var(--primary); color:#EAF3EE}
+.bg-tint{background:var(--primary-tint)}
+
+.kicker{
+  display:inline-block; font-size:13px; font-weight:700; letter-spacing:.14em;
+  color:var(--accent-700); text-transform:uppercase; margin-bottom:16px;
+}
+.bg-dark .kicker{color:#EBB86E}
+.h2{font-size:clamp(28px,4.2vw,42px); letter-spacing:-.03em}
+.h3{font-size:clamp(20px,2.4vw,25px)}
+.lead{font-size:clamp(16px,1.7vw,18.5px); color:var(--ink-2); line-height:1.85; max-width:62ch}
+.bg-dark .lead{color:#C6DCD1}
+.section-head{max-width:none; margin-bottom:52px}
+
+/* ============ buttons ============ */
+.btn{
+  display:inline-flex; align-items:center; justify-content:center; gap:8px;
+  padding:15px 30px; border-radius:999px; font-size:16px; font-weight:700;
+  text-decoration:none; border:1.5px solid transparent; cursor:pointer;
+  transition:transform .16s ease, box-shadow .16s ease, background .16s ease, color .16s ease;
+  white-space:nowrap;
+}
+.btn:hover{transform:translateY(-2px)}
+.btn--primary{background:var(--accent); color:#231603; box-shadow:0 6px 18px rgba(224,145,58,.32)}
+.btn--primary:hover{background:#EC9F49; box-shadow:0 10px 26px rgba(224,145,58,.4)}
+.btn--dark{background:var(--primary); color:#fff}
+.btn--dark:hover{background:var(--primary-700)}
+.btn--ghost{background:transparent; color:var(--primary); border-color:rgba(20,86,63,.28)}
+.btn--ghost:hover{background:var(--primary-tint); border-color:var(--primary)}
+.bg-dark .btn--ghost{color:#EAF3EE; border-color:rgba(234,243,238,.35)}
+.bg-dark .btn--ghost:hover{background:rgba(255,255,255,.1)}
+.btn--sm{padding:10px 20px; font-size:14.5px}
+@media (prefers-reduced-motion:reduce){.btn:hover{transform:none}}
+
+/* ============ header ============ */
+.site-header{
+  position:sticky; top:0; z-index:50; background:rgba(251,247,241,.88);
+  backdrop-filter:saturate(160%) blur(12px); border-bottom:1px solid transparent;
+  transition:border-color .2s ease, box-shadow .2s ease;
+}
+.site-header.is-stuck{border-bottom-color:var(--line); box-shadow:0 4px 16px rgba(23,33,29,.05)}
+.nav{display:flex; align-items:center; gap:24px; height:70px}
+.brand{display:flex; align-items:center; gap:10px; text-decoration:none; flex-shrink:0}
+.brand__mark{
+  width:34px; height:34px; border-radius:9px; background:var(--primary); color:#fff;
+  display:grid; place-items:center; font-size:15px; font-weight:900; letter-spacing:-.05em;
+}
+.brand__name{font-weight:900; font-size:18px; letter-spacing:-.04em}
+.brand__sub{display:block; font-size:10.5px; font-weight:500; color:var(--muted); letter-spacing:.04em; line-height:1.2}
+.nav__links{display:flex; gap:4px; margin-left:auto}
+.nav__links a{
+  padding:8px 14px; border-radius:8px; font-size:15px; font-weight:500;
+  color:var(--ink-2); text-decoration:none; transition:background .15s, color .15s;
+}
+.nav__links a:hover{background:var(--primary-tint); color:var(--primary)}
+.nav__cta{margin-left:8px}
+@media (max-width:900px){
+  .nav__links{display:none}
+  .nav__cta{margin-left:auto}
+}
+
+/* ============ hero ============ */
+.hero{position:relative; overflow:hidden; background:var(--cream); padding:92px 0 88px}
+.hero::before{
+  content:""; position:absolute; inset:0; z-index:0; pointer-events:none;
+  background:
+    radial-gradient(760px 480px at 88% -8%, rgba(224,145,58,.16), transparent 62%),
+    radial-gradient(680px 460px at 4% 108%, rgba(20,86,63,.11), transparent 60%);
+}
+.hero .wrap{position:relative; z-index:1}
+.hero__grid{display:grid; grid-template-columns:1.15fr .85fr; gap:64px; align-items:center}
+.hero__tag{
+  display:inline-flex; align-items:center; gap:9px; padding:7px 15px 7px 9px; border-radius:999px;
+  background:var(--white); border:1px solid var(--line); font-size:13.5px; font-weight:600;
+  color:var(--ink-2); box-shadow:var(--shadow-sm); margin-bottom:24px;
+}
+.hero__tag b{
+  background:var(--primary); color:#fff; padding:3px 9px; border-radius:999px;
+  font-size:11.5px; font-weight:700; letter-spacing:.02em;
+}
+.hero h1{font-size:clamp(34px,5.6vw,58px); font-weight:900; letter-spacing:-.045em; line-height:1.22}
+.hero h1 em{font-style:normal; color:var(--primary); position:relative; white-space:nowrap}
+.hero h1 em::after{
+  content:""; position:absolute; left:-1px; right:-1px; bottom:.1em; height:.32em;
+  background:var(--accent); opacity:.28; border-radius:3px; z-index:-1;
+}
+.hero__lead{margin-top:26px; font-size:clamp(16px,1.8vw,19px); color:var(--ink-2); line-height:1.85; max-width:52ch}
+.hero__actions{display:flex; flex-wrap:wrap; gap:12px; margin-top:36px}
+.hero__note{margin-top:18px; font-size:13.5px; color:var(--muted)}
+
+.hero__card{
+  background:var(--white); border:1px solid var(--line); border-radius:var(--r-lg);
+  padding:32px 30px; box-shadow:var(--shadow-md);
+}
+.hero__card h3{font-size:16px; color:var(--muted); font-weight:600; letter-spacing:-.01em}
+.quote{margin:16px 0 0; font-size:17px; line-height:1.85; color:var(--ink); font-weight:400}
+.quote strong{font-weight:700; background:linear-gradient(transparent 62%, var(--accent-tint) 62%)}
+.quote__by{display:block; margin-top:18px; font-size:13.5px; color:var(--muted); font-weight:500}
+.hero__card hr{border:0; border-top:1px solid var(--line-soft); margin:24px 0}
+.hero__chips{display:flex; flex-wrap:wrap; gap:7px}
+.chip{
+  font-size:13px; font-weight:600; color:var(--primary); background:var(--primary-tint);
+  padding:6px 12px; border-radius:999px;
+}
+@media (max-width:900px){
+  .hero{padding:64px 0 64px}
+  .hero__grid{grid-template-columns:1fr; gap:44px}
+}
+
+/* ============ impact strip ============ */
+.impact{background:var(--primary); color:#fff; padding:0}
+.impact__inner{
+  display:grid; grid-template-columns:repeat(4,1fr);
+  border-left:1px solid rgba(255,255,255,.13);
+}
+.impact__item{padding:40px 26px; border-right:1px solid rgba(255,255,255,.13)}
+.impact__num{
+  font-size:clamp(32px,4.4vw,46px); font-weight:900; letter-spacing:-.04em;
+  line-height:1.1; color:#fff; display:block;
+}
+.impact__num small{font-size:.52em; font-weight:700; margin-left:2px; letter-spacing:-.02em}
+.impact__label{margin-top:8px; font-size:14.5px; color:#B9D3C7; line-height:1.55; font-weight:500}
+@media (max-width:760px){
+  .impact__inner{grid-template-columns:repeat(2,1fr)}
+  .impact__item{padding:28px 20px; border-bottom:1px solid rgba(255,255,255,.13)}
+}
+
+/* ============ generic cards ============ */
+.grid{display:grid; gap:20px}
+.grid--3{grid-template-columns:repeat(3,1fr)}
+.grid--2{grid-template-columns:repeat(2,1fr)}
+.grid--4{grid-template-columns:repeat(4,1fr)}
+@media (max-width:900px){.grid--3,.grid--4{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:620px){.grid--2,.grid--3,.grid--4{grid-template-columns:1fr}}
+
+.card{
+  background:var(--white); border:1px solid var(--line); border-radius:var(--r-md);
+  padding:28px 26px; box-shadow:var(--shadow-sm);
+}
+.card h3{font-size:19px; margin-bottom:10px}
+.card p{font-size:15.5px; color:var(--ink-2); line-height:1.8}
+
+/* stat cards (problem) */
+.stat{background:var(--white); border:1px solid var(--line); border-radius:var(--r-md); padding:26px 24px}
+.stat__num{font-size:38px; font-weight:900; letter-spacing:-.04em; color:var(--primary); line-height:1.1}
+.stat__num small{font-size:.5em; font-weight:700}
+.stat__name{margin-top:8px; font-size:17px; font-weight:700}
+.stat__src{margin-top:6px; font-size:13px; color:var(--muted); line-height:1.6}
+
+/* barrier list */
+.barriers{display:grid; grid-template-columns:repeat(2,1fr); gap:16px; margin-top:20px}
+@media (max-width:700px){.barriers{grid-template-columns:1fr}}
+.barrier{
+  display:flex; gap:16px; padding:22px 24px; background:var(--white);
+  border:1px solid var(--line); border-radius:var(--r-md);
+}
+.barrier__icon{
+  flex-shrink:0; width:40px; height:40px; border-radius:11px; background:var(--accent-tint);
+  display:grid; place-items:center; color:var(--accent-700);
+}
+.barrier h4{font-size:16.5px; margin-bottom:5px}
+.barrier p{font-size:14.5px; color:var(--ink-2); line-height:1.72}
+
+/* ============ approach (3 roles) ============ */
+.role{
+  background:var(--white); border:1px solid var(--line); border-radius:var(--r-md);
+  padding:32px 28px; position:relative; overflow:hidden;
+}
+.role::before{content:""; position:absolute; inset:0 auto 0 0; width:4px; background:var(--primary)}
+.role:nth-child(2)::before{background:var(--accent)}
+.role:nth-child(3)::before{background:var(--primary-300)}
+.role__n{font-size:12.5px; font-weight:800; letter-spacing:.12em; color:var(--muted)}
+.role h3{margin:10px 0 12px; font-size:21px}
+.role p{font-size:15.5px; color:var(--ink-2); line-height:1.8}
+
+/* ============ steps ============ */
+.steps{display:grid; grid-template-columns:repeat(3,1fr); gap:20px}
+@media (max-width:900px){.steps{grid-template-columns:1fr}}
+.step{
+  background:var(--white); border:1px solid var(--line); border-radius:var(--r-md);
+  padding:0; overflow:hidden; display:flex; flex-direction:column;
+}
+.step__head{padding:26px 26px 22px; border-bottom:1px solid var(--line-soft); background:var(--primary-tint)}
+.step:nth-child(2) .step__head{background:var(--accent-tint)}
+.step:nth-child(3) .step__head{background:#EAF2ED}
+.step__badge{
+  display:inline-block; font-size:11.5px; font-weight:800; letter-spacing:.1em;
+  color:var(--primary-700); background:rgba(255,255,255,.72); padding:4px 10px; border-radius:999px;
+}
+.step:nth-child(2) .step__badge{color:var(--accent-700)}
+.step__head h3{margin:12px 0 6px; font-size:22px}
+.step__head .step__alias{font-size:14.5px; color:var(--ink-2); font-weight:500}
+.step__body{padding:24px 26px 26px; flex:1; display:flex; flex-direction:column}
+.step__q{font-size:13.5px; color:var(--muted); line-height:1.75; padding-bottom:16px; margin-bottom:16px; border-bottom:1px dashed var(--line)}
+.step__q b{color:var(--ink-2); font-weight:600}
+.step__list li{
+  position:relative; padding-left:17px; font-size:15px; line-height:1.72;
+  color:var(--ink-2); margin-bottom:11px;
+}
+.step__list li:last-child{margin-bottom:0}
+.step__list li::before{
+  content:""; position:absolute; left:0; top:.62em; width:6px; height:6px;
+  border-radius:2px; background:var(--primary-300);
+}
+.step__list b{color:var(--ink); font-weight:700}
+
+.support-band{
+  margin-top:22px; background:var(--white); border:1px solid var(--line);
+  border-radius:var(--r-md); padding:28px 30px;
+}
+.support-band h3{font-size:18px; margin-bottom:6px}
+.support-band > p{font-size:15px; color:var(--ink-2); margin-bottom:18px}
+.support-tags{display:flex; flex-wrap:wrap; gap:8px}
+.support-tags span{
+  font-size:14px; font-weight:600; color:var(--primary-700); background:var(--primary-tint);
+  border:1px solid rgba(20,86,63,.12); padding:7px 14px; border-radius:999px;
+}
+
+/* ============ 300h timeline ============ */
+.timeline{position:relative; margin-top:8px}
+.timeline__track{
+  display:grid; grid-template-columns:repeat(6,1fr); gap:0; position:relative;
+}
+.timeline__track::before{
+  content:""; position:absolute; left:0; right:0; top:44px; height:3px;
+  background:linear-gradient(90deg, rgba(234,243,238,.5), var(--accent));
+  border-radius:3px;
+}
+.tl{position:relative; padding:0 10px; text-align:center}
+.tl__h{font-size:14px; font-weight:800; color:#EAF3EE; letter-spacing:-.01em; height:44px; display:flex; align-items:center; justify-content:center}
+.tl__dot{
+  width:15px; height:15px; border-radius:50%; background:#EAF3EE; border:3px solid var(--primary);
+  margin:-6px auto 0; position:relative; z-index:1; box-shadow:0 0 0 3px rgba(234,243,238,.22);
+}
+.tl:last-child .tl__dot{background:var(--accent); border-color:#fff; width:19px; height:19px; margin-top:-8px}
+.tl__text{margin-top:18px; font-size:13.8px; line-height:1.68; color:#BFD8CC}
+.tl:last-child .tl__text{color:#fff; font-weight:600}
+@media (max-width:820px){
+  .timeline__track{grid-template-columns:1fr; gap:0}
+  .timeline__track::before{left:7px; right:auto; top:0; bottom:0; width:3px; height:auto;
+    background:linear-gradient(180deg, rgba(234,243,238,.5), var(--accent))}
+  .tl{display:grid; grid-template-columns:auto 1fr; gap:0 18px; text-align:left; padding:0 0 22px 0; align-items:start}
+  .tl__h{grid-column:2; height:auto; justify-content:flex-start; margin-bottom:4px}
+  .tl__dot{grid-column:1; grid-row:1/3; margin:5px 0 0}
+  .tl:last-child .tl__dot{margin-top:3px}
+  .tl__text{grid-column:2; margin-top:0}
+}
+
+.partners{
+  margin-top:36px; padding:26px 28px; border-radius:var(--r-md);
+  background:rgba(255,255,255,.07); border:1px solid rgba(255,255,255,.14);
+}
+.partners h4{font-size:15px; color:#fff; margin-bottom:12px}
+.partners p{font-size:14px; line-height:1.95; color:#B9D3C7}
+
+/* ============ outcomes ============ */
+.outcome-grid{display:grid; grid-template-columns:1.05fr .95fr; gap:22px}
+@media (max-width:900px){.outcome-grid{grid-template-columns:1fr}}
+
+.scores{display:grid; gap:14px}
+.score{
+  background:var(--white); border:1px solid var(--line); border-radius:var(--r-md);
+  padding:20px 24px; display:grid; grid-template-columns:1fr auto; gap:6px 18px; align-items:center;
+}
+.score__name{font-size:16.5px; font-weight:700}
+.score__val{font-size:26px; font-weight:900; color:var(--primary); letter-spacing:-.03em; grid-row:1/3}
+.score__val small{font-size:.5em; color:var(--muted); font-weight:600}
+.score__desc{font-size:14px; color:var(--muted); grid-column:1; line-height:1.6}
+
+.ba{background:var(--white); border:1px solid var(--line); border-radius:var(--r-md); padding:28px 26px}
+.ba h3{font-size:18px; margin-bottom:22px}
+.ba__row{margin-bottom:24px}
+.ba__row:last-child{margin-bottom:0}
+.ba__top{display:flex; justify-content:space-between; align-items:baseline; gap:12px; margin-bottom:10px}
+.ba__label{font-size:15px; font-weight:700}
+.ba__delta{font-size:14px; font-weight:800; letter-spacing:-.01em}
+.ba__delta.up{color:var(--primary)}
+.ba__delta.down{color:var(--accent-700)}
+.ba__bars{display:grid; gap:7px}
+.ba__bar{display:grid; grid-template-columns:52px 1fr auto; align-items:center; gap:10px; font-size:13px}
+.ba__bar span:first-child{color:var(--muted); font-weight:600}
+.ba__track{height:11px; background:var(--line-soft); border-radius:999px; overflow:hidden}
+.ba__fill{height:100%; border-radius:999px; width:0; transition:width 1.1s cubic-bezier(.22,1,.36,1)}
+.ba__fill--before{background:#CFC8BA}
+.ba__fill--after{background:var(--primary)}
+.ba__bar b{font-weight:700; color:var(--ink); min-width:52px; text-align:right}
+@media (prefers-reduced-motion:reduce){.ba__fill{transition:none}}
+
+.headline-stat{
+  grid-column:1/-1; background:var(--primary); color:#fff; border-radius:var(--r-md);
+  padding:32px 34px; display:flex; flex-wrap:wrap; align-items:center; gap:10px 32px;
+}
+.headline-stat__num{font-size:clamp(44px,6.5vw,64px); font-weight:900; letter-spacing:-.045em; line-height:1}
+.headline-stat__num small{font-size:.45em}
+.headline-stat__text{font-size:17px; line-height:1.7; color:#CDE2D8; max-width:44ch}
+.headline-stat__text b{color:#fff; font-weight:700}
+
+/* ============ stories ============ */
+.story{
+  background:var(--white); border:1px solid var(--line); border-radius:var(--r-md);
+  padding:26px 26px; display:flex; flex-direction:column; gap:12px;
+}
+.story__role{
+  align-self:flex-start; font-size:13px; font-weight:700; color:var(--accent-700);
+  background:var(--accent-tint); padding:5px 12px; border-radius:999px;
+}
+.story p{font-size:15px; line-height:1.8; color:var(--ink-2)}
+
+.journey{
+  margin-top:22px; background:var(--white); border:1px solid var(--line);
+  border-radius:var(--r-md); padding:30px 30px 26px;
+}
+.journey h3{font-size:19px; margin-bottom:6px}
+.journey > p{font-size:14.5px; color:var(--muted); margin-bottom:24px}
+.journey__steps{display:flex; flex-wrap:wrap; gap:10px}
+.jstep{
+  flex:1 1 150px; min-width:0; background:var(--cream); border:1px solid var(--line-soft);
+  border-radius:12px; padding:14px 16px;
+}
+.jstep b{display:block; font-size:12.5px; font-weight:800; color:var(--accent-700); letter-spacing:.04em; margin-bottom:4px}
+.jstep span{font-size:14px; color:var(--ink-2); line-height:1.6}
+.jstep:last-child{background:var(--primary-tint); border-color:rgba(20,86,63,.18)}
+.jstep:last-child b{color:var(--primary)}
+
+/* ============ donation use ============ */
+.use{display:grid; grid-template-columns:1fr 1.15fr; gap:44px; align-items:center}
+@media (max-width:900px){.use{grid-template-columns:1fr; gap:32px}}
+.use__total{font-size:clamp(30px,4vw,40px); font-weight:900; letter-spacing:-.04em; color:var(--primary); line-height:1.2}
+.use__total small{display:block; font-size:14.5px; font-weight:600; color:var(--muted); letter-spacing:0; margin-top:8px}
+.use__list{display:grid; gap:14px}
+.use__row{display:grid; grid-template-columns:132px 1fr 52px; align-items:center; gap:14px}
+.use__row span:first-child{font-size:14.5px; font-weight:600; color:var(--ink-2)}
+.use__track{height:14px; background:var(--white); border:1px solid var(--line); border-radius:999px; overflow:hidden}
+.use__fill{height:100%; width:0; border-radius:999px; background:var(--primary); transition:width 1.1s cubic-bezier(.22,1,.36,1)}
+.use__row:nth-child(2) .use__fill{background:var(--primary-300)}
+.use__row:nth-child(3) .use__fill{background:var(--accent)}
+.use__row:nth-child(4) .use__fill{background:#C6BCA9}
+.use__row:nth-child(5) .use__fill{background:#A9BFB4}
+.use__row:nth-child(6) .use__fill{background:#DCD4C6}
+.use__row b{font-size:14.5px; font-weight:800; text-align:right; color:var(--ink)}
+@media (max-width:560px){.use__row{grid-template-columns:104px 1fr 46px; gap:10px}}
+@media (prefers-reduced-motion:reduce){.use__fill{transition:none}}
+
+/* ============ CTA ============ */
+.cta-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:20px}
+@media (max-width:900px){.cta-grid{grid-template-columns:1fr}}
+.cta-card{
+  background:rgba(255,255,255,.07); border:1px solid rgba(255,255,255,.16);
+  border-radius:var(--r-md); padding:30px 28px; display:flex; flex-direction:column;
+}
+.cta-card--feature{background:var(--white); border-color:var(--white); color:var(--ink)}
+.cta-card__n{font-size:12.5px; font-weight:800; letter-spacing:.12em; color:#EBB86E}
+.cta-card--feature .cta-card__n{color:var(--accent-700)}
+.cta-card h3{margin:10px 0 12px; font-size:21px; color:#fff}
+.cta-card--feature h3{color:var(--ink)}
+.cta-card ul{margin-bottom:22px; flex:1}
+.cta-card li{
+  font-size:15px; line-height:1.75; color:#C6DCD1; padding-left:16px; position:relative; margin-bottom:9px;
+}
+.cta-card--feature li{color:var(--ink-2)}
+.cta-card li::before{content:""; position:absolute; left:0; top:.68em; width:5px; height:5px; border-radius:50%; background:currentColor; opacity:.6}
+.cta-card li b{color:#fff; font-weight:700}
+.cta-card--feature li b{color:var(--ink)}
+.cta-card .btn{width:100%}
+.cta-card__note{margin-top:12px; font-size:12.8px; color:#9FBFB0; line-height:1.6}
+.cta-card--feature .cta-card__note{color:var(--muted)}
+.acct{
+  font-size:14.5px; line-height:1.75; background:var(--cream); border:1px solid var(--line);
+  border-radius:10px; padding:14px 16px; margin-bottom:16px;
+}
+.acct b{font-weight:700}
+
+/* ============ history ============ */
+.hist{display:grid; gap:0}
+.hist__row{
+  display:grid; grid-template-columns:150px 1fr; gap:24px; padding:20px 0;
+  border-bottom:1px solid var(--line); align-items:start;
+}
+.hist__row:last-child{border-bottom:0}
+.hist__when{font-size:15px; font-weight:800; color:var(--primary); letter-spacing:-.01em}
+.hist__what{font-size:15.5px; color:var(--ink-2); line-height:1.78}
+.hist__what b{color:var(--ink); font-weight:700}
+@media (max-width:620px){
+  .hist__row{grid-template-columns:1fr; gap:4px; padding:16px 0}
+}
+
+/* ============ facts ============ */
+.facts{display:grid; grid-template-columns:repeat(2,1fr); gap:0 40px}
+@media (max-width:700px){.facts{grid-template-columns:1fr}}
+.fact{display:grid; grid-template-columns:110px 1fr; gap:16px; padding:14px 0; border-bottom:1px solid var(--line-soft); font-size:15px}
+.fact dt{color:var(--muted); font-weight:600}
+.fact dd{margin:0; color:var(--ink-2); line-height:1.7}
+
+/* ============ footer ============ */
+.footer{background:#101A16; color:#93A79D; padding:60px 0 40px; font-size:14.5px}
+.footer__top{display:grid; grid-template-columns:1.2fr 1fr 1fr; gap:36px; padding-bottom:36px; border-bottom:1px solid rgba(255,255,255,.1)}
+@media (max-width:820px){.footer__top{grid-template-columns:1fr; gap:28px}}
+.footer h4{color:#fff; font-size:15px; margin-bottom:14px}
+.footer p{line-height:1.9}
+.footer a{color:#B9D3C7; text-decoration:none}
+.footer a:hover{color:#fff; text-decoration:underline}
+.footer__links li{margin-bottom:8px}
+.footer__bottom{padding-top:26px; display:flex; flex-wrap:wrap; gap:8px 24px; justify-content:space-between; font-size:13px; color:#6E827A}
+.footer__brand{display:flex; align-items:center; gap:10px; margin-bottom:16px}
+.footer__brand .brand__mark{background:#1E6B4E}
+.footer__brand strong{color:#fff; font-size:17px; font-weight:900; letter-spacing:-.03em}
+
+/* ============ reveal ============ */
+.reveal{opacity:0; transform:translateY(18px); transition:opacity .6s ease, transform .6s cubic-bezier(.22,1,.36,1)}
+.reveal.is-in{opacity:1; transform:none}
+@media (prefers-reduced-motion:reduce){
+  .reveal{opacity:1; transform:none; transition:none}
+}
+
+/* ============ misc ============ */
+.note{font-size:13px; color:var(--muted); line-height:1.7; margin-top:20px}
+.bg-dark .note{color:#8FAFA0}
+.center{text-align:center}
+.mt-32{margin-top:32px}
+</style>
+</head>
+<body>
+
+<!-- ======================= HEADER ======================= -->
+<header class="site-header" id="siteHeader">
+  <div class="wrap">
+    <nav class="nav">
+      <a class="brand" href="#top">
+        <span class="brand__mark">일</span>
+        <span>
+          <span class="brand__name">일하는학교</span>
+          <span class="brand__sub">사회적협동조합</span>
+        </span>
+      </a>
+      <div class="nav__links">
+        <a href="#problem">우리가 만나는 청년</a>
+        <a href="#program">프로그램</a>
+        <a href="#outcome">성과</a>
+        <a href="#stories">청년 이야기</a>
+        <a href="#about">기관 소개</a>
+      </div>
+      <a class="btn btn--primary btn--sm nav__cta" href="https://box.donus.org/box/workingschool/youthwork" target="_blank" rel="noopener">후원하기</a>
+    </nav>
+  </div>
+</header>
+
+<!-- ======================= HERO ======================= -->
+<section class="hero" id="top">
+  <div class="wrap">
+    <div class="hero__grid">
+      <div>
+        <span class="hero__tag"><b>2013–2025</b> 13년간 512명의 청년과 동행했습니다</span>
+        <h1>혼자 힘으로 자립해야 하는 청년에게,<br><em>기댈 언덕</em>이 되어주세요</h1>
+        <p class="hero__lead">
+          일하는학교는 위기·고립 청년이 일상을 회복하고 진로를 찾아
+          안정적으로 일할 수 있을 때까지 <strong>3~5년을 함께 걷는</strong> 비영리법인입니다.
+          조급한 취업 대신, 각자의 속도에 맞춘 자립을 지원합니다.
+        </p>
+        <div class="hero__actions">
+          <a class="btn btn--primary" href="https://box.donus.org/box/workingschool/youthwork" target="_blank" rel="noopener">
+            정기후원 시작하기
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+          <a class="btn btn--ghost" href="#program">프로그램 살펴보기</a>
+        </div>
+        <p class="hero__note">기부금영수증이 발행되는 지정기부금단체입니다 · 교육부 인가 비영리법인</p>
+      </div>
+
+      <aside class="hero__card">
+        <h3>참여청년의 목소리</h3>
+        <p class="quote">
+          “처음 왔을 때는 작은 실패에도 무너져 내릴까봐 무서웠어요.
+          ‘저는 못할 거 같아요’ 하는 말을 입에 달고 살았어요.
+          하지만 지금은 <strong>나를 존중할 수 있게</strong> 되었고, 인턴십도 몇 번 해냈고,
+          무엇보다 <strong>해보고 싶은 일들이 생겨났어요.</strong>”
+          <span class="quote__by">— 2022년 프로그램 참여자</span>
+        </p>
+        <hr>
+        <h3 style="margin-bottom:12px">청년들이 말하는 일하는학교</h3>
+        <div class="hero__chips">
+          <span class="chip">내 속도에 맞게 준비하는 곳</span>
+          <span class="chip">배우고 성장할 수 있는 곳</span>
+          <span class="chip">기댈 언덕</span>
+          <span class="chip">믿을 수 있는 어른</span>
+        </div>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= IMPACT ======================= -->
+<section class="impact" aria-label="주요 성과 요약">
+  <div class="wrap">
+    <div class="impact__inner">
+      <div class="impact__item">
+        <span class="impact__num" data-count="512"><small>누적</small> 512<small>명</small></span>
+        <p class="impact__label">13년간 밀착 지원한<br>위기·고립 청년</p>
+      </div>
+      <div class="impact__item">
+        <span class="impact__num">64.9<small>%</small></span>
+        <p class="impact__label">첫 취업 후<br>3개월 이상 지속</p>
+      </div>
+      <div class="impact__item">
+        <span class="impact__num">100<small>+</small></span>
+        <p class="impact__label">일경험을 함께 만든<br>협력 기업·사업장</p>
+      </div>
+      <div class="impact__item">
+        <span class="impact__num">3~5<small>년</small></span>
+        <p class="impact__label">한 청년과 함께하는<br>평균 동행 기간</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= PROBLEM ======================= -->
+<section class="section bg-cream" id="problem">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="kicker">The Problem</span>
+      <h2 class="h2">‘혼자 힘으로’ 자립해야 하는<br>청년들이 있습니다</h2>
+      <p class="lead mt-32">
+        다양한 경제적·정서적 위기 속에서 <b>부모나 가족의 도움 없이 자립해야 하는 만 19~34세 미자립 청년</b>.
+        기존 제도는 위기청소년 지원에 집중되어 있고, 청년을 위한 지원은 단기 직업훈련과 취업 알선에 머무는 경우가 많습니다.
+      </p>
+    </div>
+
+    <div class="grid grid--3 reveal">
+      <div class="stat">
+        <div class="stat__num">54<small>만 명</small></div>
+        <div class="stat__name">고립은둔 청년</div>
+        <p class="stat__src">2023년 보건복지부 통계</p>
+      </div>
+      <div class="stat">
+        <div class="stat__num">17<small>만 명</small></div>
+        <div class="stat__name">학교 밖 청소년</div>
+        <p class="stat__src">2023년 교육부 통계 (중·고등학교 학업중단)</p>
+      </div>
+      <div class="stat">
+        <div class="stat__num">2<small>만 명</small></div>
+        <div class="stat__name">자립준비청년</div>
+        <p class="stat__src">2023년 아동권리보장원 (최근 5년 아동복지시설 퇴소 및 퇴소 후 5년)</p>
+      </div>
+    </div>
+    <p class="note reveal">이 밖에도 대학 비진학 청년, 1인가구 청년, 가족돌봄 청년이 같은 어려움을 겪고 있습니다.</p>
+
+    <h3 class="h3 reveal" style="margin-top:56px">자립 노력을 좌절시키는 네 가지 장벽</h3>
+    <div class="barriers reveal">
+      <div class="barrier">
+        <div class="barrier__icon" aria-hidden="true">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M3 10.5 12 3l9 7.5V21H3z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M9 21v-6h6v6" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg>
+        </div>
+        <div>
+          <h4>주거·생계 위기</h4>
+          <p>하루하루의 생계 걱정, 멈출 수 없는 생계형 알바의 반복, 생계형 채무 발생</p>
+        </div>
+      </div>
+      <div class="barrier">
+        <div class="barrier__icon" aria-hidden="true">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M4 5.5A2.5 2.5 0 0 1 6.5 3H20v15H6.5A2.5 2.5 0 0 0 4 20.5z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M9 8.5h7" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+        </div>
+        <div>
+          <h4>학업 중단</h4>
+          <p>학교에서 얻는 경험과 관계형성 기회의 단절, 눈높이에 맞는 배움의 기회 부족</p>
+        </div>
+      </div>
+      <div class="barrier">
+        <div class="barrier__icon" aria-hidden="true">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><circle cx="9" cy="8" r="3.2" stroke="currentColor" stroke-width="1.8"/><path d="M3 20c0-3.3 2.7-5.5 6-5.5s6 2.2 6 5.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M17 7.5 21 11m0-3.5L17 11" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+        </div>
+        <div>
+          <h4>관계 단절</h4>
+          <p>의논하고 도움받을 어른의 부재, 보고 배울 긍정적 역할모델이 없음</p>
+        </div>
+      </div>
+      <div class="barrier">
+        <div class="barrier__icon" aria-hidden="true">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M12 20.5S3.5 15.6 3.5 9.6A4.6 4.6 0 0 1 12 7a4.6 4.6 0 0 1 8.5 2.6c0 6-8.5 10.9-8.5 10.9z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg>
+        </div>
+        <div>
+          <h4>심리정서적 위기</h4>
+          <p>반복된 좌절 경험, 심리정서적 소진과 불안으로 일과 학습을 지속하기 어려움</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= APPROACH ======================= -->
+<section class="section bg-white" id="approach">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="kicker">Our Approach</span>
+      <h2 class="h2">조급한 취업은<br>오래 지속되지 못합니다</h2>
+      <p class="lead mt-32">
+        일하는학교는 청년 각자의 특성과 속도에 맞추어 일상 회복부터 진로탐색과 자립까지,
+        <b>충분한 시간을 가지고</b> 성장할 수 있도록 지원합니다.
+        누구에게나 공평한 시작의 기회와 충분한 성장의 과정, 그리고 일하며 꿈을 실현할 권리가 있기 때문입니다.
+      </p>
+    </div>
+
+    <div class="grid grid--3 reveal">
+      <article class="role">
+        <span class="role__n">ROLE 01</span>
+        <h3>기댈 언덕</h3>
+        <p>3~5년 이상 긴 시간을 함께하며, 청년이 혼자 해결하기 힘든 어려움을 겪을 때 언제나 의논하고 기댈 수 있는 든든한 지지관계를 맺습니다.</p>
+      </article>
+      <article class="role">
+        <span class="role__n">ROLE 02</span>
+        <h3>체험적인 배움과 성장</h3>
+        <p>진로멘토, 지역사회 기업들과 협력하여 청년 각자의 특성과 목표에 맞는 성취경험과 성장의 기회를 만들어 갑니다.</p>
+      </article>
+      <article class="role">
+        <span class="role__n">ROLE 03</span>
+        <h3>진로직업 길잡이</h3>
+        <p>차근차근 회복하고 진로를 찾고 취업과 자립을 준비할 수 있는 ‘자립이행 3단계 프로그램’을 운영합니다.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= PROGRAM ======================= -->
+<section class="section bg-cream" id="program">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="kicker">Program</span>
+      <h2 class="h2">자립이행 3단계 프로그램</h2>
+      <p class="lead mt-32">
+        일상회복 → 진로탐색 → 취업준비를 거쳐 자립을 달성하기까지, 자신만의 속도로 성장해갈 수 있도록 운영합니다.
+        평균 <b>3년 이상</b> 진행되며, 자립준비가 중단되지 않도록 위기극복지원을 병행합니다.
+      </p>
+    </div>
+
+    <div class="steps reveal">
+      <article class="step">
+        <div class="step__head">
+          <span class="step__badge">STEP 1 · 일상회복</span>
+          <h3>괜찮은 하루</h3>
+          <p class="step__alias">멈춰 있던 일상에 다시 리듬을 만듭니다</p>
+        </div>
+        <div class="step__body">
+          <p class="step__q"><b>“의욕이 떨어져서 집 밖으로 안 나간 지 오래되었어요”</b><br>“사람을 대하는 게 무섭고 힘들어요” · “내가 어떤 사람인지 모르겠어요”</p>
+          <ul class="step__list">
+            <li><b>〈빼꼼 온라인〉</b> 온라인으로 진행하는 가벼운 일상습관 만들기 미션</li>
+            <li><b>〈소소한 도전〉</b> 자기이해와 성취경험 — 낯선 경험에 도전하도록 함께 계획하고 실천 지원</li>
+            <li><b>〈사이다〉</b> 관계맺기·의사소통의 어려움을 나누고 연습</li>
+            <li><b>〈프렌즈〉</b> 가벼운 문화체험으로 배움의 즐거움과 또래관계 형성</li>
+          </ul>
+        </div>
+      </article>
+
+      <article class="step">
+        <div class="step__head">
+          <span class="step__badge">STEP 2 · 진로탐색</span>
+          <h3>챕터2</h3>
+          <p class="step__alias">해본 적 없는 일을 처음 경험해봅니다</p>
+        </div>
+        <div class="step__body">
+          <p class="step__q"><b>“배우고 경험해 본 게 없어서 진로를 선택하기 어려워요”</b><br>“아무것도 잘하는 게 없는 것 같아요” · “뭐부터 시작해야 할지 막막해요”</p>
+          <ul class="step__list">
+            <li><b>진로 경험 클래스</b> — 카페·바리스타, 사회복지, 영상 제작, 디자인, 기초사무 등</li>
+            <li><b>〈컴* 탈출〉</b> 아주 기초적인 컴퓨터 사용법 및 활용법</li>
+            <li><b>〈그래도 챌린지〉</b> 2~3개월 단위로 진로활동 목표를 세우고 달성</li>
+            <li><b>진로체험 인턴십</b> — 희망 분야에서 직접 일해보는 단기 일경험(1~2개월)</li>
+          </ul>
+        </div>
+      </article>
+
+      <article class="step">
+        <div class="step__head">
+          <span class="step__badge">STEP 3 · 취업과 자립</span>
+          <h3>꽃길 프로젝트</h3>
+          <p class="step__alias">일터에 정착하고 경력을 만들어 갑니다</p>
+        </div>
+        <div class="step__body">
+          <p class="step__q"><b>“학력, 전공, 자격증 등 준비된 것이 아무것도 없어요”</b><br>“이력서를 써 본 적이 없어요” · “적응이 힘들어서 오래 일하지 못해요”</p>
+          <ul class="step__list">
+            <li><b>〈Job 수다〉</b> 현직자에게 취업경험·진로변화과정·직업가치관 배우기</li>
+            <li><b>〈취업스쿨〉</b> 구직활동 방향 설계, 이력서·자기소개서, 면접 연습</li>
+            <li><b>직업훈련 지원</b> — 직업훈련 연계, 직업교육 및 자격 취득 비용 지원</li>
+            <li><b>일경험 인턴십</b> — 기업·진로멘토와 협력해 직업역량을 키우고 경력 형성</li>
+          </ul>
+        </div>
+      </article>
+    </div>
+
+    <div class="support-band reveal">
+      <h3>동시에, 자립준비가 중단되지 않도록</h3>
+      <p>청년마다 처한 위기가 다릅니다. 진로개발과 병행해 개별 맞춤형으로 위기극복을 지원합니다.</p>
+      <div class="support-tags">
+        <span>식생활 지원 — 정기 식비·식재료</span>
+        <span>주거안정 지원 — 정부 주거정책 연계</span>
+        <span>심리정서 지원 — 상담·심리검사·치료비</span>
+        <span>관계망 형성 지원</span>
+        <span>건강·법률·채무 등 기타 위기 지원</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= INTERNSHIP ======================= -->
+<section class="section bg-dark" id="internship">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="kicker">Work Experience</span>
+      <h2 class="h2" style="color:#fff">300시간이 만드는 변화</h2>
+      <p class="lead mt-32">
+        일하는학교가 참여기업을 발굴·매칭하고 실습생을 상담 관리하며, 기업은 적정 업무 배정과 직무 멘토링을 맡습니다.
+        같은 청년이 300시간을 지나며 이렇게 달라집니다.
+      </p>
+    </div>
+
+    <div class="timeline reveal">
+      <div class="timeline__track">
+        <div class="tl">
+          <div class="tl__h">시작 전</div>
+          <div class="tl__dot"></div>
+          <p class="tl__text">출근이 두렵다<br>할 수 있는 일이 없는 것 같다</p>
+        </div>
+        <div class="tl">
+          <div class="tl__h">50시간</div>
+          <div class="tl__dot"></div>
+          <p class="tl__text">더 이상 지각과 결근을<br>하지 않게 됐다</p>
+        </div>
+        <div class="tl">
+          <div class="tl__h">100시간</div>
+          <div class="tl__dot"></div>
+          <p class="tl__text">업무지시가 두렵지 않아졌다<br>간단한 일들은 처리할 수 있다</p>
+        </div>
+        <div class="tl">
+          <div class="tl__h">150–200시간</div>
+          <div class="tl__dot"></div>
+          <p class="tl__text">책임지고 담당하는 일이 생겼다<br>일이 재밌어진다</p>
+        </div>
+        <div class="tl">
+          <div class="tl__h">250시간</div>
+          <div class="tl__dot"></div>
+          <p class="tl__text">직업인들의 말과 문화를 익힌다<br>자신감이 생긴다</p>
+        </div>
+        <div class="tl">
+          <div class="tl__h">300시간</div>
+          <div class="tl__dot"></div>
+          <p class="tl__text">진로에 대한 확신이 생긴다<br>선배들과 관계가 형성되었다<br>성장하고 싶어진다</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="partners reveal">
+      <h4>일경험 참여기업 (2022–2025)</h4>
+      <p>
+        꽃피는신뢰(사협) · 청년독립지원청 · 민경화법무사 · 한국중소기업경영연구원 · 수정형외과 · (주)휠라인 · 지구마을(사협) ·
+        온오프카페 · 카페그런날 · 청우에스피 · 성남시지역사회보장협의체 · 중원노인종합복지관 · 신흥1동 복지회관 · 태평3동 복지회관 ·
+        성남시청소년재단 · 상대원2동 제2복지회관 · 터칭코리아 · 함께웃는재단 · 더나은 장애인보호작업장 · 스윗(사협) · (재)아름다운가게 ·
+        드바세(사협) · CU성남수정남로점 · 안나의집 그룹홈 · 정직한식탁 · 산성종합사회복지관 · 뮤탈랩 · 소프트브라운 · 파이오 · 프로미 ·
+        주민두레생협 · 프린트라인 · 스파벨리 · 협동조합 봉봉봉 · 크레드잇
+      </p>
+      <p class="note" style="margin-top:14px">2013년 설립 이후 누적 100개 이상의 기업·사업장과 협력해 왔습니다.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= OUTCOME ======================= -->
+<section class="section bg-white" id="outcome">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="kicker">Outcome</span>
+      <h2 class="h2">후원은 이렇게<br>청년의 삶을 바꿉니다</h2>
+      <p class="lead mt-32">
+        2013년부터 2025년까지, 512명의 청년이 일하는학교를 거쳤습니다.
+        참여 전후를 비교한 결과입니다.
+      </p>
+    </div>
+
+    <div class="grid reveal" style="gap:22px">
+      <div class="headline-stat">
+        <div class="headline-stat__num">64.9<small>%</small></div>
+        <p class="headline-stat__text">
+          프로그램에 참여한 청년이 <b>첫 취업에 성공하고 3개월 이상 일을 지속</b>했습니다.
+          단기 알선이 아니라, 일터에 실제로 정착한 비율입니다.
+        </p>
+      </div>
+    </div>
+
+    <div class="outcome-grid mt-32 reveal">
+      <div class="scores">
+        <div class="score">
+          <div class="score__name">일상 회복</div>
+          <div class="score__val">4.67<small>/5.0</small></div>
+          <p class="score__desc">“시간을 의미있게 보낼 수 있게 되었다”</p>
+        </div>
+        <div class="score">
+          <div class="score__name">진로성숙</div>
+          <div class="score__val">4.68<small>/5.0</small></div>
+          <p class="score__desc">“진로에 대한 이해가 깊어지고, 미래를 긍정적으로 바라볼 수 있게 되었다”</p>
+        </div>
+        <div class="score">
+          <div class="score__name">직업능력</div>
+          <div class="score__val">4.40<small>/5.0</small></div>
+          <p class="score__desc">“직업에 대한 기술과 능력을 가지게 되었다”</p>
+        </div>
+      </div>
+
+      <div class="ba">
+        <h3>참여 전 → 참여 후</h3>
+
+        <div class="ba__row">
+          <div class="ba__top">
+            <span class="ba__label">월 200만원 이상 소득자 비율</span>
+            <span class="ba__delta up">+51.9%p</span>
+          </div>
+          <div class="ba__bars">
+            <div class="ba__bar"><span>참여 전</span><div class="ba__track"><div class="ba__fill ba__fill--before" data-w="8.9"></div></div><b>8.9%</b></div>
+            <div class="ba__bar"><span>참여 후</span><div class="ba__track"><div class="ba__fill ba__fill--after" data-w="60.8"></div></div><b>60.8%</b></div>
+          </div>
+        </div>
+
+        <div class="ba__row">
+          <div class="ba__top">
+            <span class="ba__label">우울감 점수</span>
+            <span class="ba__delta down">−37.2%</span>
+          </div>
+          <div class="ba__bars">
+            <div class="ba__bar"><span>참여 전</span><div class="ba__track"><div class="ba__fill ba__fill--before" data-w="67.6"></div></div><b>33.8점</b></div>
+            <div class="ba__bar"><span>참여 후</span><div class="ba__track"><div class="ba__fill ba__fill--after" data-w="42.4"></div></div><b>21.2점</b></div>
+          </div>
+        </div>
+
+        <div class="ba__row">
+          <div class="ba__top">
+            <span class="ba__label">사회적 지지 <span style="font-weight:500;color:var(--muted);font-size:13px">(7점 기준)</span></span>
+            <span class="ba__delta up">+22.1%</span>
+          </div>
+          <div class="ba__bars">
+            <div class="ba__bar"><span>참여 전</span><div class="ba__track"><div class="ba__fill ba__fill--before" data-w="48.3"></div></div><b>3.38점</b></div>
+            <div class="ba__bar"><span>참여 후</span><div class="ba__track"><div class="ba__fill ba__fill--after" data-w="58.9"></div></div><b>4.12점</b></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <p class="note reveal">
+      참여청년 512명 중 학업중단 경험 49.1%, 대학 비진학 75%, 1인 가구 47.3%, 경제적 위기 환경 53.2% (모두 첫 참여 당시 기준).
+    </p>
+  </div>
+</section>
+
+<!-- ======================= STORIES ======================= -->
+<section class="section bg-cream" id="stories">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="kicker">Stories</span>
+      <h2 class="h2">자립은 단번에<br>달성되지 않습니다</h2>
+      <p class="lead mt-32">
+        시행착오의 순간들이 찾아옵니다. 청년이 길을 잃고 방황하는 순간에도,
+        포기하지 않고 기다리는 긴 호흡이 필요합니다. 후원은 그 긴 호흡을 가능하게 합니다.
+      </p>
+    </div>
+
+    <div class="journey reveal">
+      <h3>어느 청년의 9년</h3>
+      <p>고립은둔 청소년에서 어린이집 교사이자 진로멘토가 되기까지</p>
+      <div class="journey__steps">
+        <div class="jstep"><b>1년차</b><span>고립은둔, 진로탐색 노력</span></div>
+        <div class="jstep"><b>2년차</b><span>재고립, 진로방황</span></div>
+        <div class="jstep"><b>3년차</b><span>자격증 취득, 첫 취업 성공</span></div>
+        <div class="jstep"><b>5년차</b><span>퇴사, 진로방향 재탐색</span></div>
+        <div class="jstep"><b>7년차</b><span>방송통신대 진학, 재취업 성공</span></div>
+        <div class="jstep"><b>9년차</b><span>어린이집 교사 3년차 근속, 진로멘토 활동</span></div>
+      </div>
+    </div>
+
+    <h3 class="h3 reveal" style="margin:56px 0 20px">학생에서 후원자가 된 청년들</h3>
+    <div class="grid grid--4 reveal">
+      <article class="story">
+        <span class="story__role">어린이집 교사</span>
+        <p>가정폭력과 방임을 겪으며 청소년기에 학교 밖 청소년이자 1인 가구가 되었지만, 차근차근 자격증을 취득하고 여러 차례 취업·이직을 거쳐 베테랑 교사로 성장했습니다.</p>
+      </article>
+      <article class="story">
+        <span class="story__role">게임 개발자</span>
+        <p>집 밖으로 나오기 힘든 고립은둔청소년이었습니다. 여러 차례 시행착오와 재도전 끝에 개발자 교육과정을 이수해 취업했고, 지금은 일하는학교의 진로멘토로 활동합니다.</p>
+      </article>
+      <article class="story">
+        <span class="story__role">사회복지사</span>
+        <p>장애가 있는 부모를 부양하며 생계를 책임진 가족돌봄청년. 생계형 아르바이트를 반복하며 희망을 잃기도 했지만, 지금은 학교 밖 청소년을 상담하는 전문가가 되었습니다.</p>
+      </article>
+      <article class="story">
+        <span class="story__role">교육프로그램 기획자</span>
+        <p>생활시설 퇴소 후 가족 없이 자립해야 했고 우울증으로 어려움을 겪었습니다. 차분히 준비한 끝에 교육 프로그램 운영 기업에 취업해 꾸준히 근속 중입니다.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= DONATION USE ======================= -->
+<section class="section section--tight bg-tint" id="use">
+  <div class="wrap">
+    <div class="use">
+      <div class="reveal">
+        <span class="kicker">Transparency</span>
+        <h2 class="h2" style="font-size:clamp(25px,3.4vw,34px)">후원금은<br>이렇게 쓰였습니다</h2>
+        <div class="use__total mt-32">
+          221,649,836<small>2024년 기부금 사용 총액</small>
+        </div>
+        <p class="note">기부금영수증이 발행되는 지정기부금단체입니다.</p>
+      </div>
+      <div class="use__list reveal">
+        <div class="use__row"><span>청년자립지원사업</span><div class="use__track"><div class="use__fill" data-w="100"></div></div><b>40%</b></div>
+        <div class="use__row"><span>고립청년지원사업</span><div class="use__track"><div class="use__fill" data-w="73.5"></div></div><b>29.4%</b></div>
+        <div class="use__row"><span>일경험카페사업</span><div class="use__track"><div class="use__fill" data-w="25.5"></div></div><b>10.2%</b></div>
+        <div class="use__row"><span>관리운영비</span><div class="use__track"><div class="use__fill" data-w="24"></div></div><b>9.6%</b></div>
+        <div class="use__row"><span>성과연구사업</span><div class="use__track"><div class="use__fill" data-w="21.5"></div></div><b>8.6%</b></div>
+        <div class="use__row"><span>기타사업</span><div class="use__track"><div class="use__fill" data-w="5.5"></div></div><b>2.2%</b></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= CTA ======================= -->
+<section class="section bg-dark" id="join">
+  <div class="wrap">
+    <div class="section-head center reveal" style="max-width:720px;margin-left:auto;margin-right:auto">
+      <span class="kicker">Join Us</span>
+      <h2 class="h2" style="color:#fff">청년들에게는<br>함께할 든든한 어른이 필요합니다</h2>
+      <p class="lead mt-32" style="margin-left:auto;margin-right:auto">
+        여러분의 따뜻한 손길이 청년들에게 희망이 됩니다. 지금, 변화의 여정에 함께해 주세요.
+      </p>
+    </div>
+
+    <div class="cta-grid reveal">
+      <article class="cta-card cta-card--feature">
+        <span class="cta-card__n">01 · 가장 큰 힘이 됩니다</span>
+        <h3>후원 참여</h3>
+        <ul>
+          <li><b>정기후원</b> — 매달 이어지는 후원이 청년의 3~5년 동행을 가능하게 합니다</li>
+          <li><b>일시후원</b> — 한 번의 후원으로도 함께할 수 있습니다</li>
+        </ul>
+        <div class="acct">
+          기부후원계좌<br>
+          <b>농협 355-0025-8391-73</b><br>
+          예금주: 사회적협동조합 일하는학교
+        </div>
+        <a class="btn btn--primary" href="https://box.donus.org/box/workingschool/youthwork" target="_blank" rel="noopener">정기후원 신청하기</a>
+        <p class="cta-card__note">기부금영수증이 발행됩니다.</p>
+      </article>
+
+      <article class="cta-card">
+        <span class="cta-card__n">02 · 사는 것으로 돕기</span>
+        <h3>상품 구매</h3>
+        <ul>
+          <li><b>그런날 마들렌 선물세트</b> — 네이버 스마트스토어에서 ‘그런날 마들렌’ 검색</li>
+          <li><b>cafe 그런날</b> 이용하기<br>1호점 · 성남시 중원구 광명로 323번길 13<br>2호점 · 서울시 서초구 명달로 105, 한국세무사회관 1층</li>
+        </ul>
+        <a class="btn btn--ghost" href="https://smartstore.naver.com" target="_blank" rel="noopener">스마트스토어 바로가기</a>
+        <p class="cta-card__note">청년들이 직접 만들고 운영하는 일경험 카페 사업단입니다.</p>
+      </article>
+
+      <article class="cta-card">
+        <span class="cta-card__n">03 · 시간과 경험 나누기</span>
+        <h3>활동 참여</h3>
+        <ul>
+          <li><b>라임트리 응원단</b> — 온라인으로 청년들의 성취활동을 응원</li>
+          <li><b>진로멘토</b> — 자신이 경험한 직업분야를 소개하고 멘토링</li>
+          <li><b>일경험지원단</b> — 사업장에서 청년의 인턴십을 지원</li>
+        </ul>
+        <a class="btn btn--ghost" href="tel:01073756584">문의 010-7375-6584</a>
+        <p class="cta-card__note">기업·기관의 협력 제안도 환영합니다.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= ABOUT ======================= -->
+<section class="section bg-white" id="about">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="kicker">About</span>
+      <h2 class="h2">기관 소개</h2>
+    </div>
+
+    <div class="facts reveal">
+      <div class="fact"><dt>법인명</dt><dd>사회적협동조합 일하는학교</dd></div>
+      <div class="fact"><dt>설립일</dt><dd>2013. 07. 12. (창립총회 2013. 02. 26.)</dd></div>
+      <div class="fact"><dt>조직형태</dt><dd>사회적경제기업 / 비영리법인 — 2013년 교육부 설립인가, 지정기부금단체</dd></div>
+      <div class="fact"><dt>조직구성</dt><dd>조합원총회 – 이사회 – 사무국 – 사업팀(2팀)</dd></div>
+      <div class="fact"><dt>근무인원</dt><dd>9명 (자립지원 5명, 카페 4명)</dd></div>
+      <div class="fact"><dt>연간 참여청년</dt><dd>63명 (자립준비청년, 고립은둔청년, 장기미취업청년 등)</dd></div>
+      <div class="fact"><dt>재정현황</dt><dd>기부후원 36.5% · 외부지원금 30.1% · 수익사업 19.7% · 공모사업 12.1% · 기타 2%</dd></div>
+      <div class="fact"><dt>주소</dt><dd>경기도 성남시 수정구 수정로 179, 4층</dd></div>
+    </div>
+
+    <h3 class="h3 reveal" style="margin:60px 0 8px">연혁</h3>
+    <div class="hist reveal">
+      <div class="hist__row"><div class="hist__when">2012. 09.</div><div class="hist__what">(준비) 성남시 학교밖청소년 대안교육지원사업</div></div>
+      <div class="hist__row"><div class="hist__when">2013. 02.</div><div class="hist__what"><b>사회적협동조합 창립총회 / 단체 설립</b></div></div>
+      <div class="hist__row"><div class="hist__when">2013. 05.</div><div class="hist__what">학교밖청소년 지원사업 시작 — 「길찾기학교」 진로탐색 프로그램</div></div>
+      <div class="hist__row"><div class="hist__when">2013. 07.</div><div class="hist__what"><b>법인 설립</b> (교육부 설립인가)</div></div>
+      <div class="hist__row"><div class="hist__when">2015</div><div class="hist__what">성남시 마을형 사회적기업 창업지원사업 선정 · 생활환경/삶의 질 실태조사(아름다운재단, 2015–2017) · 성남시 학교밖청소년 대안교육지원사업(2015–2023)</div></div>
+      <div class="hist__row"><div class="hist__when">2016. 05.</div><div class="hist__what">청년 커뮤니티 활동 지원사업 시작 (글쓰기, 영상제작 모임 등)</div></div>
+      <div class="hist__row"><div class="hist__when">2019. 10.</div><div class="hist__what"><b>청년자립지원사업 시작</b> — ‘청년맞춤제작소’ 개소 (청년재단, 성남이로운재단 지원)</div></div>
+      <div class="hist__row"><div class="hist__when">2020. 03.</div><div class="hist__what">청년 일경험 카페 「그런날」 사업 개시</div></div>
+      <div class="hist__row"><div class="hist__when">2021. 05.</div><div class="hist__what">보호종료(예정) 청소년 자립준비 멘토링 사업 — 성남그룹연합회 협력사업</div></div>
+      <div class="hist__row"><div class="hist__when">2022–2025</div><div class="hist__what">고립은둔청년 일상회복 지원사업 「괜찮은 하루」 (경기 사랑의열매 지원사업)</div></div>
+    </div>
+
+    <h3 class="h3 reveal" style="margin:60px 0 20px">그 밖의 사업</h3>
+    <div class="grid grid--3 reveal">
+      <article class="card">
+        <h3>카페 그런날</h3>
+        <p>카페·바리스타 분야의 일경험과 직업역량 개발을 돕는 카페 사업단. 커피·음료 배달판매, 마들렌 선물세트 온라인 판매, 일경험 인턴십을 운영합니다.</p>
+      </article>
+      <article class="card">
+        <h3>청년 커뮤니티 ‘소모임’</h3>
+        <p>문화활동을 함께하며 관계를 형성하고 성취경험을 달성합니다. 작은영화관 상영회, 글다방 글쓰기모임, 저녁필름 영화이야기, 일상스포츠(자전거·트래킹).</p>
+      </article>
+      <article class="card">
+        <h3>연구·조사</h3>
+        <p>1인 가구 청년 삶의 질 보고서(2017), 청년 마음건강보고서(2018), 비진학청년 진로장벽 실태조사(2020), 고립청년 지원사업 성과연구보고서(2026).</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= FOOTER ======================= -->
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer__top">
+      <div>
+        <div class="footer__brand">
+          <span class="brand__mark">일</span>
+          <strong>사회적협동조합 일하는학교</strong>
+        </div>
+        <p>
+          경기도 성남시 수정구 수정로 179, 4층<br>
+          대표전화 <a href="tel:0317536584">031-753-6584</a> · 후원문의 <a href="tel:01073756584">010-7375-6584</a><br>
+          <a href="mailto:socialcoop@youthwork.kr">socialcoop@youthwork.kr</a>
+        </p>
+      </div>
+      <div>
+        <h4>바로가기</h4>
+        <ul class="footer__links">
+          <li><a href="https://www.workingschool.net" target="_blank" rel="noopener">공식 홈페이지</a></li>
+          <li><a href="https://box.donus.org/box/workingschool/youthwork" target="_blank" rel="noopener">정기후원 신청</a></li>
+          <li><a href="#program">자립이행 3단계 프로그램</a></li>
+          <li><a href="#outcome">성과 보고</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>후원계좌</h4>
+        <p>
+          농협 <strong style="color:#fff">355-0025-8391-73</strong><br>
+          예금주: 사회적협동조합 일하는학교<br>
+          <span style="font-size:13px">기부금영수증이 발행됩니다.</span>
+        </p>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <span>© 2025 사회적협동조합 일하는학교. All rights reserved.</span>
+      <span>2013년 교육부 설립인가 비영리법인 · 지정기부금단체</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  "use strict";
+  var reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  /* sticky header shadow */
+  var header = document.getElementById("siteHeader");
+  var onScroll = function(){
+    if (window.scrollY > 8) header.classList.add("is-stuck");
+    else header.classList.remove("is-stuck");
+  };
+  window.addEventListener("scroll", onScroll, {passive:true});
+  onScroll();
+
+  /* reveal on scroll */
+  var revealEls = document.querySelectorAll(".reveal");
+  if (reduce || !("IntersectionObserver" in window)) {
+    Array.prototype.forEach.call(revealEls, function(el){ el.classList.add("is-in"); });
+  } else {
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if (e.isIntersecting) { e.target.classList.add("is-in"); io.unobserve(e.target); }
+      });
+    }, {rootMargin:"0px 0px -8% 0px", threshold:0.08});
+    Array.prototype.forEach.call(revealEls, function(el){ io.observe(el); });
+  }
+
+  /* animate bars when visible */
+  var bars = document.querySelectorAll("[data-w]");
+  var fill = function(el){ el.style.width = el.getAttribute("data-w") + "%"; };
+  if (reduce || !("IntersectionObserver" in window)) {
+    Array.prototype.forEach.call(bars, fill);
+  } else {
+    var bo = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if (e.isIntersecting) { fill(e.target); bo.unobserve(e.target); }
+      });
+    }, {threshold:0.3});
+    Array.prototype.forEach.call(bars, function(el){ bo.observe(el); });
+  }
+})();
+</script>
+</body>
+</html>

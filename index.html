@@ -503,6 +503,33 @@ ul{margin:0; padding:0; list-style:none}
 .float-card__lead b{color:var(--ink); font-weight:700}
 .float-card .btn{width:100%}
 .float-card__note{margin-top:14px; font-size:13px; color:var(--muted); line-height:1.6}
+/* 계좌 바 — 정기/일시 어느 탭에서도 보이게 카드 하단 고정 */
+.acct-bar{
+  margin:28px 40px 0; padding:18px 20px; text-align:center;
+  background:var(--surface); border:1px solid var(--line); border-radius:14px;
+}
+.acct-bar__label{
+  display:block; font-size:12px; font-weight:700; letter-spacing:.1em;
+  color:var(--muted); text-transform:uppercase; margin-bottom:8px;
+}
+.acct-bar__main{display:flex; align-items:center; justify-content:center; gap:10px; flex-wrap:wrap}
+.acct-bar__main b{
+  font-size:19px; font-weight:700; color:var(--ink); letter-spacing:-.01em;
+  font-variant-numeric:tabular-nums;
+}
+.acct-bar__copy{
+  display:inline-flex; align-items:center; gap:5px; padding:6px 12px;
+  background:var(--white); border:1px solid var(--line); border-radius:999px;
+  font-family:inherit; font-size:13px; font-weight:600; color:var(--brand-ink);
+  cursor:pointer; transition:background .15s ease, border-color .15s ease;
+}
+.acct-bar__copy:hover{background:var(--brand-tint); border-color:var(--brand)}
+.acct-bar__copy.is-done{color:var(--ink-2); background:var(--brand-tint)}
+.acct-bar__owner{display:block; margin-top:8px; font-size:13.5px; color:var(--ink-2)}
+@media (max-width:560px){
+  .acct-bar{margin:24px 22px 0}
+  .acct-bar__main b{font-size:17px}
+}
 @media (max-width:560px){
   .float-card{margin:-90px 0 0; border-radius:var(--r-md)}
   .tab-panel{padding:0 22px}
@@ -530,11 +557,6 @@ ul{margin:0; padding:0; list-style:none}
 .cta-card li b{color:var(--ink); font-weight:700}
 .cta-card .btn{width:100%}
 .cta-card__note{margin-top:12px; font-size:12.8px; color:var(--muted); line-height:1.6}
-.acct{
-  font-size:14.5px; line-height:1.75; background:var(--surface); border:1px solid var(--line);
-  border-radius:10px; padding:14px 16px; margin-bottom:16px; text-align:left;
-}
-.acct b{font-weight:700}
 
 /* ============ history ============ */
 .hist{display:grid; gap:0}
@@ -1174,13 +1196,24 @@ ul{margin:0; padding:0; list-style:none}
         <p class="float-card__lead">
           한 번의 후원으로도 함께할 수 있습니다. 아래 계좌로 보내주시면 됩니다.
         </p>
-        <div class="acct">
-          기부후원계좌<br>
-          <b>농협 355-0025-8391-73</b><br>
-          예금주: 사회적협동조합 일하는학교
-        </div>
         <a class="btn btn--primary" href="tel:01073756584">기부금영수증 문의 010-7375-6584</a>
         <p class="float-card__note">영수증 발행을 위해 입금 후 연락처를 남겨주세요.</p>
+      </div>
+
+      <!-- 계좌는 탭과 무관하게 항상 노출 -->
+      <div class="acct-bar">
+        <span class="acct-bar__label">후원계좌</span>
+        <div class="acct-bar__main">
+          <b id="acctNo">농협 355-0025-8391-73</b>
+          <button class="acct-bar__copy" type="button" data-copy="355-0025-8391-73" aria-label="계좌번호 복사">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <rect x="9" y="9" width="12" height="12" rx="2.5" stroke="currentColor" stroke-width="1.8"/>
+              <path d="M15 5.5A2.5 2.5 0 0 0 12.5 3h-7A2.5 2.5 0 0 0 3 5.5v7A2.5 2.5 0 0 0 5.5 15" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+            </svg>
+            <span class="acct-bar__copy-text">복사</span>
+          </button>
+        </div>
+        <span class="acct-bar__owner">예금주 · 사회적협동조합 일하는학교</span>
       </div>
     </div>
   </div>
@@ -1377,6 +1410,34 @@ ul{margin:0; padding:0; list-style:none}
       });
     });
   });
+
+  /* 계좌번호 복사 */
+  var copyBtn = document.querySelector(".acct-bar__copy");
+  if (copyBtn) {
+    copyBtn.addEventListener("click", function(){
+      var text = copyBtn.getAttribute("data-copy");
+      var label = copyBtn.querySelector(".acct-bar__copy-text");
+      var done = function(ok){
+        label.textContent = ok ? "복사됨" : "복사 실패";
+        copyBtn.classList.toggle("is-done", ok);
+        setTimeout(function(){ label.textContent = "복사"; copyBtn.classList.remove("is-done"); }, 1800);
+      };
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(text).then(function(){ done(true); }, function(){ done(false); });
+      } else {
+        /* 구형 브라우저 / 비보안 컨텍스트 대비 */
+        try {
+          var ta = document.createElement("textarea");
+          ta.value = text; ta.setAttribute("readonly", "");
+          ta.style.position = "fixed"; ta.style.opacity = "0";
+          document.body.appendChild(ta); ta.select();
+          var ok = document.execCommand("copy");
+          document.body.removeChild(ta);
+          done(ok);
+        } catch (e) { done(false); }
+      }
+    });
+  }
 
   /* animate bars when visible */
   var bars = document.querySelectorAll("[data-w]");

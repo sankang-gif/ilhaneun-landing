@@ -464,19 +464,25 @@ ul{margin:0; padding:0; list-style:none}
   position:absolute; inset:0; z-index:-1;
   background:url("img/band-donate.jpg") center 42% / cover no-repeat;
 }
+/* 배경이 밝고 복잡해(초록 팻말·인물) Thin 흰 글자가 묻히므로 오버레이를 강하게 건다 */
 .photo-band__media::after{
   content:""; position:absolute; inset:0;
-  background:linear-gradient(180deg, rgba(11,15,18,.62) 0%, rgba(11,15,18,.5) 45%, rgba(11,15,18,.72) 100%);
+  background:
+    radial-gradient(120% 78% at 50% 46%, rgba(11,15,18,.82) 0%, rgba(11,15,18,.62) 58%, rgba(11,15,18,.5) 100%),
+    linear-gradient(180deg, rgba(11,15,18,.6) 0%, rgba(11,15,18,.52) 45%, rgba(11,15,18,.78) 100%);
 }
 .photo-band__inner{max-width:760px; margin:0 auto; text-align:center}
 .photo-band .kicker{color:#7FD3F7}
 .photo-band .section-head__rule{margin:26px auto; background:rgba(255,255,255,.32)}
-/* 사진 위 타이틀 — 점프 시그니처 Thin 웨이트 */
+/* 사진 위 타이틀 — 점프 시그니처 Thin 계열(가독성 위해 200 대신 300) */
 .photo-band__title{
-  font-size:clamp(30px,4.4vw,50px); font-weight:200; line-height:1.28;
-  letter-spacing:-.025em; color:#fff;
+  font-size:clamp(30px,4.4vw,50px); font-weight:300; line-height:1.28;
+  letter-spacing:-.025em; color:#fff; text-shadow:0 2px 18px rgba(11,15,18,.55);
 }
-.photo-band__lead{font-size:17px; line-height:1.85; color:#D7E3EA; max-width:56ch; margin:0 auto}
+.photo-band__lead{
+  font-size:17px; line-height:1.85; color:#DCE6EC; max-width:56ch; margin:0 auto;
+  text-shadow:0 1px 12px rgba(11,15,18,.5);
+}
 
 .float-card{
   position:relative; z-index:2; max-width:560px; margin:-110px auto 0;
